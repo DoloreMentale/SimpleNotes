@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <router-view/>
+    <router-view />
   </div>
 </template>
 
@@ -13,7 +13,14 @@
 }
 
 body {
-  background-image: linear-gradient(to left bottom, #40597e, #057491, #008d8e, #4fa278, #98b061);
+  background-image: linear-gradient(
+    to left bottom,
+    #40597e,
+    #057491,
+    #008d8e,
+    #4fa278,
+    #98b061
+  );
   margin: 0;
   width: 100%;
   min-height: 100vh;

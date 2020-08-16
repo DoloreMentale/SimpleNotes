@@ -4,11 +4,13 @@
     <nav>
       <h3 class="nav-brand">Simple Notes</h3>
       <h3 class="nav-brand">||</h3>
-      <h3 class="nav-link"
-          :class="{ activePage: selectedPage === page }"
-          v-for="(page, index) in pages"
-          :key="index"
-          @click="selectedPage = page">
+      <h3
+        class="nav-link"
+        :class="{ activePage: selectedPage === page }"
+        v-for="(page, index) in pages"
+        :key="index"
+        @click="selectedPage = page"
+      >
         {{ page }}
       </h3>
     </nav>
@@ -16,7 +18,7 @@
 
     <!-- NoteList Page (main) -->
     <div v-show="selectedPage === 'Notes'">
-      <Note :notes="notes"/>
+      <Note :notes="notes" />
     </div>
     <!-- end of NoteList Page (main) -->
 
@@ -40,25 +42,21 @@ export default {
   },
   data() {
     return {
-      notes:
-          [
-            {title: "Cucold Note Title", item: "Cucold Note Item", completed: false},
-            {title: "SUKA OPYAT VSE NE RABOTAET", item: "ILI RABOTAET", completed: false}
-          ],
-      pages: ['Notes', 'Edit'],
-      selectedPage: 'Notes'
-    }
+      notes: [],
+      pages: ["Notes", "Edit"],
+      selectedPage: "Notes"
+    };
   },
   mounted() {
-    if (localStorage.getItem('notes')) {
+    if (localStorage.getItem("notes")) {
       try {
-        this.notes = JSON.parse(localStorage.getItem('notes'));
+        this.notes = JSON.parse(localStorage.getItem("notes"));
       } catch (e) {
-        localStorage.removeItem('notes', close());
+        localStorage.removeItem("notes", close());
       }
     }
-  },
-}
+  }
+};
 </script>
 
 <style scoped>

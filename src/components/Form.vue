@@ -5,9 +5,12 @@
         <div>
           <p>New Title</p>
           <label for="title">
-            <input id="title" v-model="notes.title"
-                   placeholder="enter new title"
-                   required>
+            <input
+              id="title"
+              v-model="notes.title"
+              placeholder="enter new title"
+              required
+            />
           </label>
         </div>
 
@@ -15,28 +18,29 @@
           <p>New Item</p>
           <div class="note-item">
             <label>
-              <input v-model="notes.item" placeholder="enter new task">
+              <input v-model="notes.item" placeholder="enter new task" />
             </label>
           </div>
         </div>
 
         <div>
-          <input class="button"
-                 v-on:click.prevent="addNote"
-                 type="submit"
-                 value="Submit">
+          <input
+            class="button"
+            v-on:click.prevent="addNote"
+            type="submit"
+            value="Submit"
+          />
         </div>
       </form>
     </div>
     <div class="grid">
       <div class="card">
         <h3 class="card-header">Note Preview</h3>
-        <h3 class="card-item card-header"
-        >{{ notes.title }}</h3>
+        <h3 class="card-item card-header">{{ notes.title }}</h3>
         <div class="note-item">
-          <p class="card-item"
-             v-bind:class="{checked: notes.completed}">
-            {{ notes.item }}</p>
+          <p class="card-item" v-bind:class="{ checked: notes.completed }">
+            {{ notes.item }}
+          </p>
         </div>
       </div>
     </div>
@@ -46,24 +50,25 @@
     </div>
 
     <section class="grid">
-      <div class="card"
-           v-for="(note, index) in notes"
-           :key="index">
-        <h3 class="card-item card-header"
-        >{{ note.title }}</h3>
+      <div class="card" v-for="(note, index) in notes" :key="index">
+        <h3 class="card-item card-header">{{ note.title }}</h3>
         <div class="note-item">
           <label>
-            <input type="checkbox"
-                   v-on:change="note.completed = !note.completed">
+            <input
+              type="checkbox"
+              v-on:change="note.completed = !note.completed"
+            />
           </label>
-          <p class="card-item"
-             v-bind:class="{checked: note.completed}">
-            {{ note.item }}</p>
+          <p class="card-item" v-bind:class="{ checked: note.completed }">
+            {{ note.item }}
+          </p>
         </div>
-        <input v-on:click="removeNote(index)"
-               type="submit"
-               class="button"
-               value="delete note">
+        <input
+          v-on:click="removeNote(index)"
+          type="submit"
+          class="button"
+          value="delete note"
+        />
       </div>
     </section>
   </section>
@@ -91,7 +96,7 @@ export default {
         title: this.notes.title,
         item: this.notes.item,
         completed: this.notes.completed
-      }
+      };
 
       this.notes.push(newNote);
       this.notes.title = null;
@@ -106,14 +111,13 @@ export default {
 
     saveNotes() {
       const parsed = JSON.stringify(this.notes);
-      localStorage.setItem('notes', parsed);
+      localStorage.setItem("notes", parsed);
     }
   }
-}
+};
 </script>
 
 <style scoped>
-
 form {
   background-color: white;
   padding: 2rem;

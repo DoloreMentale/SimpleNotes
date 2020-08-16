@@ -5,15 +5,15 @@ import NoteList from "@/components/NoteList";
 Vue.use(VueRouter);
 
 const routes = [
-    {
-        path: "/",
-        name: "NoteList",
-        component: NoteList
-    },
+  {
+    path: "/",
+    name: "NoteList",
+    component: NoteList
+  }
 ];
 
 const router = new VueRouter({
-    routes
+  routes
 });
 
 export default router;
