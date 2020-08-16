@@ -1,10 +1,6 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view />
+    <router-view/>
   </div>
 </template>
 
@@ -13,20 +9,45 @@
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: #2c3e50;
+}
+
+body {
+  background-image: linear-gradient(to left bottom, #40597e, #057491, #008d8e, #4fa278, #98b061);
+  margin: 0;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.card {
+  background-color: white;
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 25px;
+  color: #4fa278;
+}
+
+.card-header {
   text-align: center;
-  color: #2c3e50;
 }
 
-#nav {
-  padding: 30px;
+.card-item {
+  margin: 1rem;
 }
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
+.note-item {
+  display: flex;
+  align-items: center;
 }
 
-#nav a.router-link-exact-active {
-  color: #42b983;
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-template-rows: repeat(auto-fill, minmax(250px, 1fr));
+  grid-gap: 1vw;
+}
+
+.checked {
+  text-decoration: line-through;
 }
 </style>
